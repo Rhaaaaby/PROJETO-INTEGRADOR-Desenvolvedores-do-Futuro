@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Cabeçalho*/
+header{
+    background-color: #1A1A1A;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: Fira Sans, Arial, Helvetica;
+    height: 140px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px 40px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+}
+
+/*links*/
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+li {
+    display: inline-block;
+    margin-right: 20px; 
+}
+
+/*logo*/
+.logo img {
+    display: block; /* Mudei de flex para block pois é uma imagem */
+    height: 90px;
+    margin-left: 40px; /* Isso já coloca à esquerda */
+    padding: 0px;
+    position: relative;
+    /* Removi as propriedades abaixo que podem estar causando centralização */
+    /* align-items: flex-start; */
+    /* margin-right: 60px; */
+    /* justify-content: space-between; */
+}
+
+
+
+
+
+
+
+
+
+
+
+/*rodapé*/
+footer {
+    background-color: #1A1A1A;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: Poppins, Arial, Helvetica;
+    font-weight: 400;
+    height: 220px;
+    width: 100%;
+    margin: 0px;
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/*area logo*/
+footer .logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+}
+
+footer .logo img {
+    height: 90px;
+}
+
+footer .texto-rodape {
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: left;
+    padding: 0px 0px 0px 50px;
+}
+
+/*links rodapé*/
+footer h3 {
+    font-size: 16px;
+    font-family: Poppins, Arial, Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    padding: 0px 150px 0px 0px;
+    text-align: center;
+}
+
+footer nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex: 1;
+}
+
+footer section {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 10px;
+}
+
+footer nav section {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+footer section ul {
+    display: flex;
+    padding: 4px 0px 0px 0px;
+    margin: 0;
+    flex-direction: column;
+    gap: 5px;
+}
+
+footer section li {
+    margin-bottom: 1px;
+}
