@@ -1,0 +1,22 @@
+<!-- template criado para testagem do login -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar</title>
+</head>
+<body>
+    <h1>Registrar nova conta</h1>
+    <form method="POST" action="{{ url_for('auth.register') }}">
+        <label for="username">Nome de usuário:</label>
+        <input type="text" name="username" required minlength="3" maxlength="150">
+        <br>
+        <label for="password">Senha:</label>
+        <input type="password" name="password" required minlength="6">
+        <br>
+        <button type="submit">Registrar</button>
+    </form>
+    <a href="{{ url_for('auth.login') }}">Já tem uma conta? Faça login</a>
+</body>
+</html>
