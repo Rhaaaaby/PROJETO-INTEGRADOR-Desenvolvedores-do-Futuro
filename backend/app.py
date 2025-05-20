@@ -7,7 +7,6 @@ app = Flask(
     template_folder='../frontend',
     static_folder='../static'
 )
-app.secret_key = '12345'
 
 UPLOAD_FOLDER = os.path.join(app.root_path, '../static/uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
