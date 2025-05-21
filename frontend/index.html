@@ -28,90 +28,205 @@
         </nav>
     </header>
 
+<div class="main-content-container"> <!-- Div container principal adicionada aqui -->
     <section class="hero-section">
         <img src="/static/home assets/hero section 1920px width.png" alt="maos com coração">
     </section>
 
     <div class="container-box-text1">
-        <div class="imagem-mulher">
-            <img src="/static/home assets/mulher-segurandocaixa.png" alt="Muler segurando caixa">
-        </div>
+    <!-- Imagem alinhada ao lado do texto -->
+    <div class="imagem-mulher">
+        <img src="/static/home assets/mulher-segurandocaixa.png" alt="Mulher segurando caixa">
+    </div>
+    
+    <!-- Container do texto e botões -->
+    <div class="texto-container">
         <div class="text-tranforme-vidas">
-            <h1>Transforme vidas com 1 Clique</h1>
-        </div>
-        <div class="paragrafo1">
-            <p>Doe agora e faça a diferença na vida de alguém.</p>
-        </div>
-        <div>
-            <button class="primary_button1">
-                <p> <img src="/static/home assets/image 13.png"> Quero doar</p>
-            </button>
-        </div>
-        <div>
-            <button class="secondary_button1">
-                <p> <img src="/static/home assets/image14.png"> Preciso de ajuda</p>
-            </button>
+                <h1 style="font-size: 48px;">Transforme vidas com 1 Clique</h1>
+            </div>
+            <div class="paragrafo1">
+                <p style="font-size: 32px;">Doe agora e faça a diferença <br> na vida de alguém.</p>
+            </div>
+            <div class="button-group">
+                <button class="primary_button1">
+                    <p style="color: white; font-size: 20px;"><img src="/static/home assets/image 13.png"> Quero doar</p>
+                </button>
+                <button class="secondary_button1">
+                    <p style="color: #C94141; font-size: 20px;"><img src="/static/home assets/image14.png"> Preciso de ajuda</p>
+                </button>
+            </div>
         </div>
     </div>
 
     <section class="section2">
-        <div class="container-section2">
-            <div class="titulo-section2">
-                <h1>
+        <div class="campanhas-section">
+            <div class="campanhas-titulo">
+                <h2>
                     Campanhas que precisam de você:
-                </h1>
+                    <div class="sublinhado-cinza"></div>
+                </h2>
             </div>
 
             <!--cards das campanhas-->
-            <div class="image-box-s2">
-                <div class="image-s2">
-                    <img src="/static/home assets/image (1).png" alt="">
-                    <div class="titulo-box">
-                        <h1>
-                            Inverno Quente
-                        </h1>
-                    </div>
-                    <div class="paragrafo-box">
-                        <p>
-                            Ajude a aquecer quem mais precisa nesse inverno!
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--card2-->
-            <div class="image-box-s2">
-                <div class="image-s2">
-                    <img src="/static/home assets/image (2).png" alt="">
-                    <div class="titulo-box">
-                        <h1>
-                            Volta às aulas Solidária
-                        </h1>
-                    </div>
-                    <div class="paragrafo-box">
-                        <p>
-                            Dê a uma criança a chance de começar o ano com dignidade.
-                        </p>
+            <div class="campanhas-container"> <!-- Container específico para os cards -->
+                <div class="image-box-s2">
+                    <div class="image-s2">
+                        <img src="/static/home assets/image (1).png" alt="">
+                        <div class="titulo-box">
+                            <h1>
+                                Inverno Quente
+                            </h1>
+                        </div>
+                        <div class="paragrafo-box">
+                            <p>
+                                Ajude a aquecer quem mais precisa nesse inverno!
+                            </p>
+                        </div>
+                        <div class="button-container">
+                            <button class="card-button">
+                                Quero Doar
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!--card3-->
-            <div class="image-box-s2">
-                <div class="image-s2">
-                    <img src="/static/home assets/image (3).png" alt="">
-                    <div class="titulo-box">
-                        <h1>
-                            Doar é Amar
-                        </h1>
+                <!--card2-->
+                <div class="image-box-s2">
+                    <div class="image-s2">
+                        <img src="/static/home assets/image (2).png" alt="">
+                        <div class="titulo-box">
+                            <h1>
+                                Volta às aulas Solidária
+                            </h1>
+                        </div>
+                        <div class="paragrafo-box">
+                            <p>
+                                Dê a uma criança a chance de começar o ano com dignidade.
+                            </p>
+                        </div>
+                        <div class="button-container">
+                            <button class="card-button">
+                                Quero Doar
+                            </button>
+                        </div>
                     </div>
-                    <div class="paragrafo-box">
-                        <p>
-                            Tudo o que está parado na sua casa pode transformar a vida de alguém.
-                        </p>
+                </div>
+                <!--card3-->
+                <div class="image-box-s2">
+                    <div class="image-s2">
+                        <img src="/static/home assets/image (3).png" alt="">
+                        <div class="titulo-box">
+                            <h1>
+                                Doar é Amar
+                            </h1>
+                        </div>
+                        <div class="paragrafo-box">
+                            <p>
+                                Tudo o que está parado na sua casa pode transformar a vida de alguém.
+                            </p>
+                        </div>
+                        <div class="button-container">
+                            <button class="card-button">
+                                Quero Doar
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="section-categorias-doacao">
+    <div class="container-doacao">
+        <h1 class="categorias-title">
+            Categorias de doação: 
+            <div class="sublinhado-cinza"></div> 
+        </h1>
+        <!--Cards de doação-->
+        <div class="doacao-cards">
+            <!-- Card 1 - Alimentos -->
+            <div class="card-categoria">
+                <div class="img-doacao-box">  <!-- Container da imagem -->
+                    <img src="/static/section_doacao/image 14.png" alt="Ícone alimentos">
+                </div>
+                <p class="categoria-titulo">Alimentos</p>
+            </div>
+
+            <!-- Card 2 - Roupas -->
+            <div class="card-categoria">
+                <div class="img-doacao-box">
+                    <img src="/static/section_doacao/image 15.png" alt="Ícone roupas">
+                </div>
+                <p class="categoria-titulo">Roupas</p>
+            </div>
+
+            <!-- Card 3 - Dinheiro -->
+            <div class="card-categoria">
+                <div class="img-doacao-box">
+                    <img src="/static/section_doacao/image 16.png" alt="Ícone dinheiro">
+                </div>
+                <p class="categoria-titulo">Dinheiro</p>
+            </div>
+
+            <!-- Card 4 - Educação -->
+            <div class="card-categoria">
+                <div class="img-doacao-box">
+                    <img src="/static/section_doacao/image 17.png" alt="Ícone educação">
+                </div>
+                <p class="categoria-titulo">Educação</p>
+            </div>
+        </div>
+    </div>
+    </section>
+    <section class="section-depoimentos">
+    <div class="container-ajuda">
+        <div>
+            <h1 class="ajuda-title">Veja como sua ajuda faz diferença:</h1>
+            <div class="sublinhado-cinza"></div>
+        </div>
+        
+        <div class="depoimentos-container">
+            <!-- Card 1 -->
+            <div class="card-depoimento">
+                <div class="depoimento-content">
+                    <div class="img-depoimento-box">
+                        <img src="/static/section_depoimentos/image-2.png" alt="Foto depoimento 1" class="img-depoimento">
+                    </div>
+                    <div class="text-depoimento">
+                        <h2>Depoimento 1</h2>
+                        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="card-depoimento">
+                <div class="depoimento-content">
+                    <div class="img-depoimento-box">
+                        <img src="/static/section_depoimentos/image-2.png" alt="Foto depoimento 2" class="img-depoimento">
+                    </div>
+                    <div class="text-depoimento">
+                        <h2>Depoimento 2</h2>
+                        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="card-depoimento">
+                <div class="depoimento-content">
+                    <div class="img-depoimento-box">
+                        <img src="/static/section_depoimentos/image-2.png" alt="Foto depoimento 3" class="img-depoimento">
+                    </div>
+                    <div class="text-depoimento">
+                        <h2>Depoimento 3</h2>
+                        <p>Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+</div> <!-- Fechamento da div container principal -->
 
     <footer>
         <div class="logo-area">

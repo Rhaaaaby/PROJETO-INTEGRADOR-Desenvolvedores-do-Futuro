@@ -4,8 +4,21 @@
     box-sizing: border-box;
 }
 
-/*Cabeçalho*/
-header{
+/* Aplicando para todos os h1 */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; /* Peso semi-bold */
+}
+
+/* Aplicando para todos os parágrafos */
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Peso regular */
+}
+
+/* Cabeçalho (mantido EXATAMENTE como está) */
+header {
+    width: 1920px;
     background-color: #1A1A1A;
     color: #ffffff;
     font-size: 18px;
@@ -20,13 +33,19 @@ header{
     position: static;
 }
 
-/*links*/
-a {
+/* Links (hover adicionado) */
+header a {
     text-decoration: none;
     color: #ffffff;
+    transition: color 0.3s ease; /* Adicionado apenas isso */
 }
 
-ul {
+header a:hover {
+    color: #C94141; /* Única mudança - cor do hover */
+}
+
+/* Lista (mantido igual) */
+header ul {
     list-style: none; 
     padding: 0;
     margin: 0;
@@ -34,45 +53,396 @@ ul {
     gap: 15px;
 }
 
-li {
+header li {
     display: inline-block;
     margin-right: 20px; 
 }
 
-/*logo*/
+/* Logo (mantido EXATAMENTE igual) */
 .logo img {
-    display: block; /* Mudei de flex para block pois é uma imagem */
+    display: block;
     height: 90px;
-    margin-left: 40px; /* Isso já coloca à esquerda */
+    margin-left: 40px;
     padding: 0px;
     position: relative;
-    /* Removi as propriedades abaixo que podem estar causando centralização */
-    /* align-items: flex-start; */
-    /* margin-right: 60px; */
-    /* justify-content: space-between; */
+}
+
+/* Container principal */
+.main-content-container {
+    max-width: 1536px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Hero Section - Largura total */
+.hero-section {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden;
+}
+
+.hero-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container-box-text1 {
+    display: flex;          /* Ativa Flexbox */
+    align-items: center;    /* Centraliza verticalmente */
+    gap: 50px;              /* Espaço entre imagem e texto */
+    max-width: 1536px;      /* Largura máxima do container */
+    margin: 0 auto;         /* Centraliza na página */
+    padding: 20px;          /* Espaçamento interno */
+}
+
+.imagem-mulher {
+    width: 700px;
+    height: 500px;
+}
+
+.texto-container {
+    flex: 1;                /* Ocupa o espaço restante */
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;              /* Espaço entre botões */
+    margin-top: 60px;       /* Distância do parágrafo */
+}
+
+.primary_button1 {
+    width: 320px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #C94141;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+.primary_button1:hover {
+    background-color: #A03131; /* Vermelho mais escuro no hover */
+}
+
+.secondary_button1 {
+    width: 320px;
+    height: 50px;
+    cursor: pointer;
+    border: 2px solid #C94141;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.secondary_button1:hover {
+    border-color: #808080; /* Cinza no hover */
+    color: #808080; /* Texto cinza no hover */
+    background-color: rgba(128, 128, 128, 0.1); /* Fundo cinza bem clarinho */
+}
+
+    /* Estilos para o novo título */
+    .campanhas-section {
+        width: 100%;
+        max-width: 1536px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+    
+    .campanhas-titulo {
+        font-weight: 400;
+        font-size: 26px;
+        color: #333;
+        margin-top: 120px;
+        margin-left: 20px;
+    }
+
+    .sublinhado-cinza {
+    height: 4px;
+    width: 1400px;
+    background-color: #e0e0e0;
+    margin: 0;
+    border-radius: 2px;
+}
+
+    .campanhas-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        padding: 20px;
+        gap: 50px;
+    }
+    
+    .image-box-s2 {
+        width: 480px;
+        height: 600px;
+        background: #BFBFBF;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .image-s2 {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    
+    .image-s2 img {
+        width: 367px;
+        height: 345px;
+        object-fit: cover;
+        margin: 20px auto 0;
+        border-radius: 8px;
+    }
+    
+    .titulo-box {
+        margin: 25px 20px 10px;
+        text-align: center;
+    }
+    
+    .titulo-box h1 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333333;
+    }
+    
+    .paragrafo-box {
+        margin: 0 20px;
+        text-align: center;
+    }
+    
+    .paragrafo-box p {
+        font-size: 17px;
+        font-weight: 600;
+        color: #555555;
+        line-height: 1.4;
+    }
+    
+    .button-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;  
+        margin-top: auto;
+        padding: 0 20px 20px;  
+    }
+    .card-button {
+        width: 205px;
+        height: 50px;
+        align-items: center;
+        background-color: #C94141;
+        color: white;
+        border: none;
+        padding: 12px 0;
+        margin: 30px 20px 20px;
+        border-radius: 6px;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .card-button:hover {
+        background-color: #A03131;
+    }
+
+/* Estilos para a seção de categorias de doação */
+
+.categorias-title {
+    font-size: 38px;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 80px;
+}
+
+.section-categorias-doacao {
+    padding: 40px 0;
+    background: #ffffff;
+}
+
+.container-doacao {
+    max-width: 1536px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.doacao-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 125px;
+}
+
+.card-categoria {
+    width: 230px;
+    height: 230px;
+    background: #BFBFBF;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card-categoria:hover {
+    transform: translateY(-5px);
+}
+
+.img-doacao-box {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.img-doacao-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.categoria-titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin: 0;
 }
 
 
+/*section depoimentos*/
 
 
+.section-depoimentos {
+    padding: 60px 0;
+    background-color: #ffffff;
+}
 
+.container-ajuda {
+    max-width: 1536px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
+.ajuda-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 38px;
+    font-weight: 600;
+    text-align: left;
+    color: #333;
+}
 
+.depoimentos-container {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
 
+.card-depoimento {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    padding: 30px;
+    flex: 1;
+    min-width: 300px;
+}
 
+.depoimento-content {
+    display: flex;
+    gap: 20px;
+}
 
+/* Image Box */
+.img-depoimento-box {
+    width: 230px;
+    height: 230px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.img-depoimento {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text Container */
+.text-depoimento {
+    display: flex;
+    flex-direction: column;
+    max-width: 206px;
+}
+
+.text-depoimento h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.text-depoimento p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .depoimento-content {
+        flex-direction: column;
+    }
+    
+    .img-depoimento-box {
+        margin: 0 auto;
+    }
+    
+    .text-depoimento {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .depoimentos-container {
+        flex-direction: column;
+    }
+    
+    .card-depoimento {
+        min-width: 100%;
+    }
+}
 
 /*rodapé*/
 footer {
     background-color: #1A1A1A;
     color: #ffffff;
     font-size: 16px;
-    font-family: Poppins, Arial, Helvetica;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
     font-weight: 400;
-    height: 220px;
     width: 100%;
-    margin: 0px;
-    padding: 40px 80px;
+    margin: 0;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container {
+    max-width: 1536px;
+    width: 100%;
+    padding: 0 80px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -97,18 +467,17 @@ footer .texto-rodape {
     margin-top: 10px;
     line-height: 1.5;
     text-align: left;
-    padding: 0px 0px 0px 50px;
+    padding-left: 50px;
 }
 
 /*links rodapé*/
 footer h3 {
     font-size: 16px;
-    font-family: Poppins, Arial, Helvetica;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
     font-weight: 700;
     color: #ffffff;
-    margin: 0;
-    padding: 0px 150px 0px 0px;
-    text-align: center;
+    margin: 0 0 15px 0;
+    text-align: left;
 }
 
 footer nav {
@@ -116,32 +485,35 @@ footer nav {
     justify-content: space-between;
     gap: 30px;
     flex: 1;
+    max-width: 800px;
 }
 
 footer section {
     display: flex;
     flex-direction: column;
     text-align: left;
-    gap: 10px;
-}
-
-footer nav section {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    gap: 5px;
-    margin: 0;
-    padding: 0;
+    min-width: 150px;
 }
 
 footer section ul {
     display: flex;
-    padding: 4px 0px 0px 0px;
-    margin: 0;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 footer section li {
-    margin-bottom: 1px;
+    margin-bottom: 0;
+}
+
+footer section a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer section a:hover {
+    color: #C94141;
 }
