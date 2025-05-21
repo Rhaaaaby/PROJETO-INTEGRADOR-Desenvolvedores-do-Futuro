@@ -1,30 +1,38 @@
 #rota criada para testes do login
 
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for
 from werkzeug.security import generate_password_hash
-from database import db
-from Models.user import User
+from ..Models.user import User
+from ..database import db
 
 register_bp = Blueprint('register', __name__)
 
-@register_bp.route('/register', methods=['POST'])
+@register_bp.route('/register', methods=['GET', 'POST'])
 def register():
-    data = request.get_json()
+    if request.method == 'POST':
+        Nome=request.form.get('Nome')
+        Email=request.form.get('Email')
+        Telefone=request.form.get('Telefone')
+        Senha=request.form.get('Senha')
+        senha_hash=generate_password_hash(Senha)
+        Preferencia=request.form.get('Preferencia')
+        Tipo_Conta=request.form.get('Tipo_Conta')
 
-    # Checando se o email já existe
-    if User.query.filter_by(Email=data['Email']).first():
-        return jsonify({"error": "Email já cadastrado!"}), 400
+        #checando se o email já existe
+        if User.query.filter_by(Email=Email).first():
+            return render_template('register.html', error="Email já cadastrado!")
+        
+        novo_usuario = User(
+            Nome= Nome,
+            Email= Email,
+            Telefone= Telefone,
+            Senha= senha_hash,
+            Preferencia= Preferencia,
+            Tipo_Conta= Tipo_Conta
+        )
+    
+        db.session.add(novo_usuario)
+        db.session.commit()
 
-    novo_usuario = User(
-        Nome=data['Nome'],
-        Email=data['Email'],
-        Telefone=data['Telefone'],
-        Senha=generate_password_hash(data['Senha']),
-        Preferencia=data['Preferencia'],
-        Tipo_Conta=data['Tipo_Conta']
-    )
-
-    db.session.add(novo_usuario)
-    db.session.commit()
-
-    return jsonify({"message": "Usuário criado com sucesso!"}), 201
+        return render_template('register.html', success="Usuário cadastrado com sucesso!")
+    return render_template('register.html')

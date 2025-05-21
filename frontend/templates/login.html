@@ -4,22 +4,22 @@
 <!-- nessa aplicação, usaremos Jinja2 -->
 
 <head>
-    <Title>Login</Title>
+    <title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- linkando o documento CSS para o Flask -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='comum.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylelogin.css') }}">
 
     <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap">
-
 </head>
 
 <body>
     <header>
         <a class="logo" href="#">
-            <img src="s{{url_for('static', filename='logo_doai.png') }}" alt="Logo Doaí">
+            <img src="{{url_for('static', filename='images/logo_doai.png') }}" alt="Logo Doaí">
         </a>
         <nav>
             <ul>
@@ -33,8 +33,7 @@
         </nav>
     </header>
 
-
-    <form action="{{ url_for('login') }}" method="post" enctype="multipart/form-data" target="_self" autocomplete="on">
+    <form action="{{ url_for('auth.login') }}" method="post" target="_self" autocomplete="on">
         <div class="form">
             <fieldset>
                 <legend>
@@ -42,26 +41,24 @@
                     <p>Bem-vindo(a) de volta! :)</p>
                 </legend>
 
-                <label for="email"> E-mail ou Usuário: </label>
-                <input type="text" id="email" name="email" required minlength="3" maxlength="150">
+                <label for="Email"> E-mail ou Usuário: </label>
+                <input type="text" id="Email" name="Email" required minlength="3" maxlength="150">
 
-                <label for="senha"> Senha: </label>
-                <input type="password" id="senha" name="senha" required minlength="6">
+                <label for="Senha"> Senha: </label>
+                <input type="password" id="Senha" name="Senha" required minlength="6">
 
-                <button type="submit"> Entrar </button>
+                <a href="{{ url_for('home') }}" class="button"> Entrar </a>
 
-                <a href="{{ url_for('register.html') }}" class="botao-secundario"> Criar Conta </a>
+                <a href="{{ url_for('register.register') }}" class="botao-secundario"> Criar Conta </a>
 
             </fieldset>
         </div>
     </form>
 
-
-
     <footer>
         <div class="logo-area">
             <a class="logo" href="#">
-                <img src="{{url_for('static', filename='logo/logo_doai.png')}}" alt="Logo Doaí">
+                <img src="{{url_for('static', filename='images/logo_doai.png')}}" alt="Logo Doaí">
             </a>
             <p class="texto-rodape"> Colaborando para a solidariedade e desenvolvendo o Futuro.</p>
         </div>

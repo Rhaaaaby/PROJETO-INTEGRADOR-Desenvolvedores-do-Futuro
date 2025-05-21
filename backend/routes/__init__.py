@@ -1,6 +1,6 @@
+from .register import register_bp
 from flask import Blueprint
-from routes.register import register_bp
-from routes.login import auth_bp
+from .login import auth_bp
 
 def init_app_routes(app):
     app.register_blueprint(register_bp)
