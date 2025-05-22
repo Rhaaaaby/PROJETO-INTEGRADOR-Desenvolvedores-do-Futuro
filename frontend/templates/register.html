@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Registrar</title>    
+    <title>Registrar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- linkando o documento CSS para o Flask -->
     <link rel="stylesheet" href="{{ url_for('static', filename='comum.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleregister.css') }}">
 
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap">
@@ -15,7 +16,6 @@
 </head>
 
 <body>
-    <h1>Registrar nova conta</h1>
     <header>
         <a class="logo" href="#">
             <img src="{{url_for('static', filename='images/logo_doai.png') }}" alt="Logo Doaí">
@@ -33,43 +33,66 @@
     </header>
 
     <form method="POST" action="{{ url_for('register.register') }}">
-        <legend>
-            <h2>Crie Já a Sua Conta!</h2>
-            <p>Preencha o Formulário Abaixo!</p>
-        </legend>
-        
-        <label for="Nome">Nome Completo</label>
-        <input type="text" name="Nome" required minlength="3" maxlength="100">
+        <fieldset>
+            <legend>
+                <h2>Crie Já a Sua Conta!</h2>
+                <p>Preencha o Formulário Abaixo!</p>
+            </legend>
 
-        <label for="Email">E-mail:</label>
-        <input type="email" name="Email" required maxlength="50">
+            <label for="Nome">Nome Completo</label>
+            <input type="text" id="Nome" name="Nome" required minlength="3" maxlength="100">
 
-        <label for="Telefone">Telefone:</label>
-        <input type="text" name="Telefone" required maxlength="20">
+            <label for="Email">E-mail:</label>
+            <input type="email" id="Email" name="Email" required maxlength="50">
 
-        <label for="Senha">Senha:</label>
-        <input type="password" name="Senha" required minlength="6">
+            <label for="Telefone">Telefone:</label>
+            <input type="text" id="Telefone" name="Telefone" required maxlength="20">
 
-        <label for="Preferencia">Preferência:</label>
-        <select name="Preferencia" required>
-            <option value="Troca">Troca</option>
-            <option value="Doação">Doação</option>
-            <option value="Receber Doação">Receber Doação</option>
-        </select>
+            <label for="Senha">Senha: </label>
+            <input type="password" id="Senha" name="Senha" required minlength="6" maxlength="20" autocomplete="off"
+            placeholder="De 6 a 20 caracteres (números e letras)">
 
-        <label for="Tipo_Conta">Tipo de Conta:</label>
-        <select name="Tipo_Conta" required>
-            <option value="Pessoal">Pessoal</option>
-            <option value="ONG">ONG</option>
-            <option value="Instituição">Instituição</option>
-        </select>
-        <label for="acordo"> Li e Aceito os <li><a href="#">Termos de Uso</a></li></label>
-        <input type="checkbox" id="acordo" name="acordo"> 
-        <button type="submit">Criar Agora</button>
+            <!-- Trantando as checkboxes do formulário -->
+            <div class="checkbox-container">
+
+                <!-- Preferência de Conta -->
+                <div class="checkbox-group">
+                    <label class="titulo">Preferência:</label>
+                    <div class="checkbox-row">
+                        <label><input type="checkbox" name="Preferencia" value="Trocas"> Troca</label>
+                        <label><input type="checkbox" name="Preferencia" value="Doações"> Doações</label>
+                    </div>
+                </div>
+
+                <!-- Tipo de Conta -->
+                <div class="checkbox-group">
+                    <label class="titulo">Tipos de Instituição:</label>
+                    <div class="checkbox-row">
+                        <label><input type="checkbox" name="Tipo_Conta" value="Pessoal"> Pessoal</label>
+                        <label><input type="checkbox" name="Tipo_Conta" value="ONG"> ONG</label>
+                    </div>
+                </div>
+
+                <!-- Termos de uso -->
+                <div class="termos-container">
+                    <label>
+                        <input type="checkbox" id="acordo" name="acordo" required>
+                        <span>Li e aceito os <a href="#" class="link-termos">Termos de Uso</a></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- botões -->
+            <button type="submit">Criar Agora</button>
+
+            <div class="botao_login">
+                <a href="{{ url_for('auth.login') }}">Já Tenho Perfil</a>
+            </div>
+
+        </fieldset>
     </form>
-    <a href="{{ url_for('auth.login') }}">Já Tenho Perfil</a>
 
-     <footer>
+    <footer>
         <div class="logo-area">
             <a class="logo" href="#">
                 <img src="{{url_for('static', filename='images/logo_doai.png')}}" alt="Logo Doaí">
@@ -107,4 +130,5 @@
         </nav>
     </footer>
 </body>
+
 </html>
