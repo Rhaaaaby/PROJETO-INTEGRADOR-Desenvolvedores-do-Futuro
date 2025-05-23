@@ -56,11 +56,10 @@ div.form {
     font-family: Montserrat, Arial, Helvetica;
     border-radius: 9px;
     background-color:#D9D9D9;
-    box-shadow: 4px 4px 3px 0px rgba(0, 0, 0, 0.25);
-    padding: 0px auto;
-    margin: 150px auto;
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.25);
+    padding: 40px 20px;
+    margin: 80px auto;
     width: 440px;
-    height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -111,48 +110,64 @@ input {
     font-size: 17px;
     font-weight: 400;
     color: #000000;
-    width: 300px;
+    width: 100px;
+    max-width: 300px;
     height: 40px;
     margin: 0px 0px 40px 8px;
-    padding: 0px auto;
     border-radius: 5px;
     border: none;
+    padding: 0 10px;
     background-color: #ffffff;
 }
 
-/*botões formulário*/
-.form button {
-    font-size: 20px;
-    font-weight: 600;
-    color: #ffffff;
-    background-color: #C94141;
-    border-radius: 5px;
-    padding: 10px 120px;
-    margin: 10px;
-    text-decoration: none;
-    border: none;
-    justify-content: center;
-    align-items: center;
+.botoes-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 100px; /* Afasta os botões do rodapé */
+}
+
+/* Botão principal */
+.btn-principal {
+    background-color: #C94141;
+    color: white;
+    padding: 10px 30px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
 }
 
-.botao-secundario {
-    font-size: 20px;
-    font-weight: 600;
-    color: #C94141;
-    background-color: #ffffff;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin: 10px 10px 50px 10px;
-    text-decoration: none;
-    border: 1px solid #C94141;
+/* Botões secundários lado a lado */
+.botoes-duplos {
     display: flex;
+    gap: 20px;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
+
+.btn-secundario {
+    background-color: white;
+    color: #C94141;
+    border: 2px solid #C94141;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Botão de excluir */
+.btn-excluir {
+    background-color: #C94141;
+    color: white;
+    opacity: 0.6;
+    padding: 10px 30px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
 
 /*rodapé*/
 footer {
@@ -161,15 +176,11 @@ footer {
     font-size: 16px;
     font-family: Poppins, Arial, Helvetica;
     font-weight: 400;
-    height: 220px;
-    width: 100%;
-    margin: 0px;
     padding: 40px 80px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
     flex-wrap: wrap;
+    gap: 40px;
 }
 
 /*area logo*/

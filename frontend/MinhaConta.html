@@ -27,28 +27,36 @@
     </header>
 
     <form action="/enviar" method="post" enctype="multipart/form-data" target="_self" autocomplete="on">
-          <div class="form">
-              <fieldset>
-                <legend>
-                    <span> Bem-vindo(a) de volta! :) </span>
-                    <p> Aqui você gerencia seus produtos!</p>
-                </legend>
-                
-                <label for="email"> E-mail ou Usuário: </label>
-                <input type="text" id="email" name="email" required minlength="3" maxlength="150">
-                
-                <label for="senha"> Senha: </label>
-                <input type="password" id="senha" name="senha" required minlength="6">
-                
-                <label for="senha"> Telefone </label>
-                <input type="text" id="telefone" name="telefone" required minlength="16">
+  <div class="form">
+    <fieldset>
+      <legend>
+        <span> Bem-vindo(a) de volta! :) </span>
+        <p> Aqui você gerencia seus produtos!</p>
+      </legend>
 
-                <button type="submit"> Salvar alterações </button>
-                <button class="btn btn-secondary">Cadastrar novos produtos</button>
-                <button class="btn btn-secondary">Ver meus produtos</button>
-                <button class="btn">Excluir conta</button>
-            </fieldset>
+      <label for="email"> E-mail ou Usuário: </label>
+      <input type="text" id="email" name="email" required minlength="3" maxlength="150">
+
+      <label for="senha"> Senha: </label>
+      <input type="password" id="senha" name="senha" required minlength="6">
+
+      <label for="telefone"> Telefone </label>
+      <input type="text" id="telefone" name="telefone" required minlength="16">
+
+      <!-- Botões centralizados -->
+      <div class="botoes-container">
+        <button class="btn-principal">Salvar alterações</button>
+
+        <div class="botoes-duplos">
+          <button class="btn-secundario">Cadastrar novos produtos</button>
+          <button class="btn-secundario">Ver meus produtos</button>
         </div>
+
+        <button class="btn-excluir">Excluir conta</button>
+      </div>
+
+    </fieldset>
+  </div>
     </form>
  
     <footer>
