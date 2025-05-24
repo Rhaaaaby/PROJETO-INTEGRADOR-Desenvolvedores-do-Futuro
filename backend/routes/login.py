@@ -21,4 +21,9 @@ def login():
                 return redirect(url_for('home'))
             flash('Crendenciais inválidas!', 'error')
             return render_template('login.html') 
+        
+        if not request.form.get('email') or not request.form.get('senha'):
+            flash('Preencha todos os campos!', 'error')
+            return redirect(url_for('auth.login'))
+        
     return render_template('login.html')

@@ -1,7 +1,11 @@
-from .register import register_bp
+from ..routes import auth_bp, register_bp, doacoes_bp, buscar_bp, feed_bp
 from flask import Blueprint
-from .login import auth_bp
 
 def init_app_routes(app):
     app.register_blueprint(register_bp)
     app.register_blueprint(auth_bp)
+    app.register_blueprint(doacoes_bp)
+    app.register_blueprint(buscar_bp)
+    app.register_blueprint(feed_bp)
+
+

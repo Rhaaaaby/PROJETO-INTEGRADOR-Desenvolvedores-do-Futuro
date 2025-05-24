@@ -11,5 +11,7 @@ class User(UserMixin, db.Model):
     Preferencia = db.Column(db.Enum('Troca', 'Doação', 'Receber Doação'), nullable=False)
     Tipo_Conta = db.Column(db.Enum('Pessoal', 'ONG', 'Instituição'), nullable=False)
 
+    produtos = db.relationship('Produto', back_populates='usuario')
+
     def get_id(self):
         return str(self.id_Usuario)

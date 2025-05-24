@@ -3,6 +3,7 @@ main{
     background-color: #ffffff;
     color:#000000;
 }
+
 .hero{
    background-image: url(../img/hero.jpg); 
    width: 1920px;
@@ -10,6 +11,7 @@ main{
    top: 140px;
 }
 
+/*Texto da página*/
 h1 {
     font-weight: 600;
     font-size: 50px;
@@ -31,6 +33,7 @@ p {
     justify-content: center;
 }
 
+/*Texto do botão*/
 .filtros-container {
     display: flex;
     justify-content: center;
@@ -61,6 +64,7 @@ p {
     cursor: pointer;
 }
 
+/*Roll de produtos que serão expostos*/
 .feed-produtos {
     display: flex;
     flex-direction: column;
@@ -71,6 +75,14 @@ p {
     padding: 20px;
     margin: 10px;
     width: 480px;
+}
+
+.produto-card {
+    transition: transform 0.3s;
+}
+
+.produto-card:hover {
+    transform: scale(1.05);
 }
 
 .produto-card h2 {
