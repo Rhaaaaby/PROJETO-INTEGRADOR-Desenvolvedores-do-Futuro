@@ -1,0 +1,121 @@
+main{
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color:#000000;
+}
+.hero{
+   background-image: url(../img/hero.jpg); 
+   width: 1920px;
+   height: 500px;
+   top: 140px;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 50px;
+    width: 72px;
+    justify-content: left;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 24px;
+    width: 72px;
+    justify-content: left;
+}
+
+p {
+    font-weight: 600;
+    font-size: 17px;
+    width: 72px;
+    justify-content: center;
+}
+
+.filtros-container {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    margin-top: 20px;
+}
+
+.opcao-filtro {
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.campo-pesquisa {
+    font-size: 17px;
+    font-weight: 400;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    background-color: #D9D9D9;
+    border: none;
+    cursor: pointer;
+}
+
+.feed-produtos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 480px;
+}
+
+.produto-card h2 {
+    font-weight: 600;
+    font-size: 24px;
+    width: 170px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* 
+.produto-card p {
+    font-weight: 400;
+    font-size: 17px;
+    width: 170px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+*/
+
+.produto-card img {
+    width: 285px;
+    height: 200px;
+    border-radius: 5px;
+    margin: 16px;
+    justify-content: center;
+    align-items: center;
+}
+
+/*botão*/
+.button {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #C94141;
+    border-radius: 5px;
+    padding: 10px 120px;
+    margin: 10px;
+    text-decoration: none;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}

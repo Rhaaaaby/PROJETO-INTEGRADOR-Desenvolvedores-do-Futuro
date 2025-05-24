@@ -1,97 +1,33 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{%extends "partials/navbar.html"%}
 
-<!-- nessa aplicação, usaremos Jinja2 -->
+{%block title%} Login {%endblock%}
 
-<head>
-    <title>Login</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- linkando o documento CSS para o Flask -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='comum.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='stylelogin.css') }}">
+{%block css_pagina %}
+<link rel="stylesheet" href="{{ url_for('static', filename='stylelogin.css') }}">
+{%endblock%}
 
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap">
-</head>
+<main>
+    {%block content%}
+        <form action="{{ url_for('auth.login') }}" method="post" target="_self" autocomplete="on">
+            <div class="form">
+                <fieldset>
+                    <legend>
+                        <span> Entre no seu perfil </span>
+                        <p>Bem-vindo(a) de volta! :)</p>
+                    </legend>
 
-<body>
-    <header>
-        <a class="logo" href="#">
-            <img src="{{url_for('static', filename='images/logo_doai.png') }}" alt="Logo Doaí">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Quem Somos</a></li>
-                <li><a href="#">Doar</a></li>
-                <li><a href="#">Receber Doação</a></li>
-                <li><a href="#">Ajuda/Suporte</a></li>
-                <li><a href="#">Minha Conta</a></li>
-            </ul>
-        </nav>
-    </header>
+                    <label for="Email"> E-mail ou Usuário: </label>
+                    <input type="text" id="Email" name="Email" required minlength="3" maxlength="150">
 
-    <form action="{{ url_for('auth.login') }}" method="post" target="_self" autocomplete="on">
-        <div class="form">
-            <fieldset>
-                <legend>
-                    <span> Entre no seu perfil </span>
-                    <p>Bem-vindo(a) de volta! :)</p>
-                </legend>
+                    <label for="Senha"> Senha: </label>
+                    <input type="password" id="Senha" name="Senha" required minlength="6">
 
-                <label for="Email"> E-mail ou Usuário: </label>
-                <input type="text" id="Email" name="Email" required minlength="3" maxlength="150">
+                    <a href="#" class="button"> Entrar </a>
 
-                <label for="Senha"> Senha: </label>
-                <input type="password" id="Senha" name="Senha" required minlength="6">
+                    <a href="{{ url_for('register.register') }}" class="botao-secundario"> Criar Conta </a>
 
-                <a href="{{ url_for('home') }}" class="button"> Entrar </a>
-
-                <a href="{{ url_for('register.register') }}" class="botao-secundario"> Criar Conta </a>
-
-            </fieldset>
-        </div>
-    </form>
-
-    <footer>
-        <div class="logo-area">
-            <a class="logo" href="#">
-                <img src="{{url_for('static', filename='images/logo_doai.png')}}" alt="Logo Doaí">
-            </a>
-            <p class="texto-rodape"> Colaborando para a solidariedade e desenvolvendo o Futuro.</p>
-        </div>
-
-        <nav>
-            <section>
-                <h3>FAQ</h3>
-                <ul>
-                    <li><a href="#">Dúvidas Frequentes</a></li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Transparência</h3>
-                <ul>
-                    <li><a href="#">Política de Privacidade</a></li>
-                    <li><a href="#">Termos de Uso</a></li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Mapa do Site</h3>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Quem Somos</a></li>
-                    <li><a href="#">Doar</a></li>
-                    <li><a href="#">Receber Doação</a></li>
-                    <li><a href="#">Ajuda/Suporte</a></li>
-                    <li><a href="#">Minha Conta</a></li>
-                </ul>
-            </section>
-        </nav>
-    </footer>
-</body>
-
-</html>
+                </fieldset>
+            </div>
+        </form>
+    {%endblock%}
+</main>

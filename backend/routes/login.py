@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template, redirect, url_for
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for, flash
 from werkzeug.security import check_password_hash
 from flask_login import login_user, current_user
 from ..Models.user import User
@@ -17,7 +17,8 @@ def login():
 
             if user and check_password_hash(user.Senha, Senha):
                 login_user(user)
-                print(current_user.is_authenticated)
+                flash('Login efetuado com sucesso!', 'sucess', current_user.is_authenticated)
                 return redirect(url_for('home'))
-            return render_template('login.html', error="Crendenciais inválidas!")
+            flash('Crendenciais inválidas!', 'error')
+            return render_template('login.html') 
     return render_template('login.html')
