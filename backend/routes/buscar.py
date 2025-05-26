@@ -1,17 +1,28 @@
 from flask import Blueprint, request, render_template
+from ..Models.produto import Produto
 
 buscar_bp = Blueprint('buscar', __name__)
 
 @buscar_bp.route('/buscar', methods=['GET'])
 def buscar():
-    termo = request.form.get('query', '').strip()
-    categorias_selecionadas = request.form.getlist('categoria')
+    termo = request.args.get('query', '').strip()
+    categorias_selecionadas = request.args.getlist('Categoria')
+
+    Produtos_query = Produto.query.filter_by(Status='disponivel')
+
+    if termo:
+        Produtos_query = Produtos_query.filter(Produto.nome.ilike(f'%{termo}%'))
+
+    if categorias_selecionadas:
+        Produtos_query = Produtos_query.filter(Produto.categoria.in_(categorias_selecionadas))
     
-    # Lógica de filtragem (implemente depois)
-    produtos_filtrados = []  # Substitua pela query real
+    produtos_filtrados = Produtos_query.all()
+
+    todas_categorias = list({p.categoria for p in Produto.query.all()})
     
     return render_template(
         'doacoes.html',
         produtos=produtos_filtrados,
-        categorias=categorias_selecionadas
+        categorias= todas_categorias,
+        categorias_selecionadas=categorias_selecionadas
     )

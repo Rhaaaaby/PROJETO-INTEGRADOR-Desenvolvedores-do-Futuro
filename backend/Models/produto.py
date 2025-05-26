@@ -1,6 +1,5 @@
 from datetime import datetime
 from ..database import db
-
 class Produto(db.Model):
     __tablename__ = 'Produto'
 
@@ -18,9 +17,9 @@ class Produto(db.Model):
     Categoria_id_Categoria = db.Column(db.Integer, db.ForeignKey('Categoria.id_Categoria'), nullable=False)
     
     #Relacionamentos
-    cadastro_produto = db.relationship('CadastroProduto', backref='produtos')
-    usuario = db.relationship('Usuario', back_populates='produtos')
-    categoria = db.relationship('Categoria', back_populates='produtos')
+    cadastro_produto = db.relationship('CadastroProduto', backref='Produto')
+    usuario = db.relationship('User', backref='Produto')
+    categoria = db.relationship('Categoria', backref='Produto')
 
     def __repr__(self):
         return f'<Produto {self.Nome}>'
