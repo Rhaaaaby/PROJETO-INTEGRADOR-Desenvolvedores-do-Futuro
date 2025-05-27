@@ -26,26 +26,27 @@
 </head>
 
 <body>
-    <!-- Campo para enviar mensagens no navegador -->
+    <!-- Comentando as mensagens flash enquanto é feito os testes -->
+    <!-- Campo para enviar mensagens no navegador 
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
                 <div class="alert alert-{{ category }}">{{ message }}</div>
             {% endfor %}
         {% endif %}
-    {% endwith %}
+    {% endwith %} -->
 
-    <!-- Ícones para as mensagens de alerta -->
+    <!-- Ícones para as mensagens de alerta 
     <div class="alert alert-{{ category }}">
         <i class="fas fa-{% if category == 'success' %}check{% else %}exclamation{% endif %}"></i>
         {{ message }}
-    </div>
+    </div> -->
 
-    <!-- Para dispensar a mensagem -->
+    <!-- Para dispensar a mensagem 
     <div class="alert alert-{{ category }}">
         {{ message }}
         <button class="close" onclick="this.parentElement.style.display='none'">×</button>
-    </div>
+    </div> -->
 
 
     <!-- Cabeçalho -->
