@@ -57,7 +57,7 @@ def teste_db():
     except Exception as e:
         return f"Conexão não estabelecida: {e}"
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/Cadastro_Itens', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         foto = request.files.get('foto')
@@ -90,7 +90,7 @@ def index():
         except Exception as e:
             print(f"Erro ao inserir no banco: {e}")
 
-        return redirect(url_for('index'))
+        return redirect(url_for('index.html'))
 
     return render_template('cadastro_de_itens.html')
 

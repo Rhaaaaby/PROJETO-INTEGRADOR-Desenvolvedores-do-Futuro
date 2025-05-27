@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='comum.css') }}">
 
     {%block css_pagina%}
-    <!-- conteúdo Css específico para as páginas -->
+    <!-- conteúdo CSS específico para as páginas -->
     {%endblock%}
 
     <!-- Google Fonts -->
@@ -51,18 +51,17 @@
 
     <!-- Cabeçalho -->
     <header>
-        <a class="logo" href="#">
+        <a class="logo" href="{{ url_for('templates', filename='index.html') }}">
             <img src="{{url_for('static', filename='images/logo_doai.png') }}" alt="Logo Doaí">
         </a>
         <nav>
-            <!-- colocar os links, referenciando corretamente para o flask quando for feito o merge-->
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Quem Somos</a></li>
-                <li><a href="#">Doar</a></li>
-                <li><a href="#">Receber Doação</a></li>
+                <li><a href="{{ url_for('templates', filename='index.html') }}">Home</a></li>
+                <li><a href="{{ url_for('templates', filename='quem_somos.html') }}">Quem Somos</a></li>
+                <li><a href="{{ url_for('templates', filename='cadastro_de_itens.html') }}">Doar</a></li>
+                <li><a href="{{ url_for('templates', filename='doacoes.html') }}">Receber Doação</a></li>
                 <li><a href="#">Ajuda/Suporte</a></li>
-                <li><a href="#">Minha Conta</a></li>
+                <li><a href="{{ url_for('templates', filename='MinhaConta.html') }}">Minha Conta</a></li>
             </ul>
         </nav>
     </header>
@@ -101,16 +100,15 @@
             <section>
                 <h3>Mapa do Site</h3>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Quem Somos</a></li>
-                    <li><a href="#">Doar</a></li>
-                    <li><a href="#">Receber Doação</a></li>
+                    <li><a href="{{ url_for('templates', filename='index.html') }}">Home</a></li>
+                    <li><a href="{{ url_for('templates', filename='quem_somos.html') }}">Quem Somos</a></li>
+                    <li><a href="{{ url_for('templates', filename='cadastro_de_itens.html') }}">Doar</a></li>
+                    <li><a href="{{ url_for('templates', filename='doacoes.html') }}">Receber Doação</a></li>
                     <li><a href="#">Ajuda/Suporte</a></li>
-                    <li><a href="#">Minha Conta</a></li>
+                    <li><a href="{{ url_for('templates', filename='MinhaConta.html') }}">Minha Conta</a></li>
                 </ul>
             </section>
         </nav>
     </footer>
-
 </body>
 </html>
