@@ -1,16 +1,12 @@
-from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from werkzeug.utils import secure_filename
 from .routes import init_app_routes
 from .Models.user import User
 from sqlalchemy import text
 from .config import Config 
 from .database import db
+from flask import Flask
 import mysql.connector
 import os
-
-#Mesclando dois arquivos app.py das branches Rhaaby e antonio
 
 # Configuração do Flask
 app = Flask(
@@ -56,43 +52,6 @@ def teste_db():
         return "Conexão com o banco funcionando."
     except Exception as e:
         return f"Conexão não estabelecida: {e}"
-
-@app.route('/Cadastro_Itens', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        foto = request.files.get('foto')
-        estado = request.form.getlist('estado')
-        categoria = request.form.getlist('categoria')
-        descricao = request.form.get('descricao')
-        status = request.form.getlist('status')
-
-        filename = None
-        if foto and foto.filename != '':
-            filename = secure_filename(foto.filename)
-            foto.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-
-        estado_str = ', '.join(estado)
-        categoria_str = ', '.join(categoria)
-        status_str = ', '.join(status)
-
-        try:
-            conn = conectar_mysql()
-            cursor = conn.cursor()
-            sql = '''
-                INSERT INTO produtos (foto, estado, categoria, descricao, status)
-                VALUES (%s, %s, %s, %s, %s)
-            '''
-            valores = (filename, estado_str, categoria_str, descricao, status_str)
-            cursor.execute(sql, valores)
-            conn.commit()
-            cursor.close()
-            conn.close()
-        except Exception as e:
-            print(f"Erro ao inserir no banco: {e}")
-
-        return redirect(url_for('index.html'))
-
-    return render_template('cadastro_de_itens.html')
 
 # Rota de teste simples
 @app.route('/teste', methods=['GET'])

@@ -1,33 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "partials/navbar.html" %}
 
-<head>
-    <Title>Home</Title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap">
+{% block title %}Home{% endblock %}
 
-</head>
+{% block css_pagina %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
 
-<body>
-    <header>
-        <a class="logo" href="{{ url_for('home.home') }}">
-            <img src="{{ url_for('static', filename='images/logo_doai.png') }}" alt="Logo Doaí">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('home.home') }}">Home</a></li>
-                <li><a href="{{ url_for('pages.render_paginas', pagina='quem_somos') }}">Quem Somos</a></li>
-                <li><a href="{{ url_for('pages.render_paginas', pagina='cadastro_de_itens') }}">Doar</a></li>
-                <li><a href="{{ url_for('pages.render_paginas', pagina='doacoes') }}">Receber Doação</a></li>
-                <li><a href="#">Ajuda/Suporte</a></li>
-                <li><a href="{{ url_for('pages.render_paginas', pagina='MinhaConta') }}">Minha Conta</a></li>
-            </ul>
-        </nav>
-    </header>
-
+{% block content %}
 <div class="main-content-container"> <!-- Div container principal adicionada aqui -->
     <section class="hero-section">
         <img src="{{ url_for('static', filename='images/home assets/hero section 1920px width.png') }}" alt="maos com coração">
@@ -48,10 +27,10 @@
                 <p style="font-size: 32px;">Doe agora e faça a diferença <br> na vida de alguém.</p>
             </div>
             <div class="button-group">
-                <button class="primary_button1">
+                <button class="primary_button1" onclick="window.location.href='/register'">
                     <p style="color: white; font-size: 20px;"><img src="{{ url_for('static', filename='images/home assets/image 13.png') }}"> Quero doar</p>
                 </button>
-                <button class="secondary_button1">
+                <button class="secondary_button1" onclick="window.location.href='/doacoes'">
                     <p style="color: #C94141; font-size: 20px;"><img src="{{ url_for('static', filename='images/home assets/image14.png') }}"> Preciso de ajuda</p>
                 </button>
             </div>
@@ -83,7 +62,7 @@
                             </p>
                         </div>
                         <div class="button-container">
-                            <button class="card-button">
+                            <button class="card-button" onclick="window.location.href='/cadastro_itens'">
                                 Quero Doar
                             </button>
                         </div>
@@ -104,7 +83,7 @@
                             </p>
                         </div>
                         <div class="button-container">
-                            <button class="card-button">
+                            <button class="card-button" onclick="window.location.href='/cadastro_itens'">
                                 Quero Doar
                             </button>
                         </div>
@@ -125,7 +104,7 @@
                             </p>
                         </div>
                         <div class="button-container">
-                            <button class="card-button">
+                            <button class="card-button" onclick="window.location.href='/cadastro_itens'">
                                 Quero Doar
                             </button>
                         </div>
@@ -144,7 +123,7 @@
         <!--Cards de doação-->
         <div class="doacao-cards">
             <!-- Card 1 - Alimentos -->
-            <div class="card-categoria">
+            <div class="card-categoria" onclick="window.location.href='/doacoes'">
                 <div class="img-doacao-box">  <!-- Container da imagem -->
                     <img src="{{ url_for('static', filename='images/section_doacao/image 14.png') }}" alt="Ícone alimentos">
                 </div>
@@ -152,7 +131,7 @@
             </div>
 
             <!-- Card 2 - Roupas -->
-            <div class="card-categoria">
+            <div class="card-categoria" onclick="window.location.href='/doacoes'">
                 <div class="img-doacao-box">
                     <img src="{{ url_for('static', filename='images/section_doacao/image 15.png') }}" alt="Ícone roupas">
                 </div>
@@ -160,7 +139,7 @@
             </div>
 
             <!-- Card 3 - Dinheiro -->
-            <div class="card-categoria">
+            <div class="card-categoria" onclick="window.location.href='/doacoes'">
                 <div class="img-doacao-box">
                     <img src="{{ url_for('static', filename='images/section_doacao/image 16.png') }}" alt="Ícone dinheiro">
                 </div>
@@ -168,7 +147,7 @@
             </div>
 
             <!-- Card 4 - Educação -->
-            <div class="card-categoria">
+            <div class="card-categoria" onclick="window.location.href='/doacoes'">
                 <div class="img-doacao-box">
                     <img src="{{ url_for('static', filename='images/section_doacao/image 17.png') }}" alt="Ícone educação">
                 </div>
@@ -215,7 +194,7 @@
             <div class="card-depoimento">
                 <div class="depoimento-content">
                     <div class="img-depoimento-box">
-                        <img src="{{ url_for('static', filename='images/section_depoimentos/image-3.png') }}" alt="Foto depoimento 3" class="img-depoimento">
+                        <img src="{{ url_for('static', filename='images/section_depoimentos/image.png') }}" alt="Foto depoimento 3" class="img-depoimento">
                     </div>
                     <div class="text-depoimento">
                         <h2>Depoimento 3</h2>
@@ -228,43 +207,4 @@
 </section> 
 </div> <!-- Fechamento da div container principal -->
 
-    <footer>
-        <div class="logo-area">
-            <a class="logo" href="{{ url_for('home.home') }}">
-                <img src="{{ url_for('static', filename='images/logo_doai.png') }}" alt="Logo Doaí">
-            </a>
-            <p class="texto-rodape"> Colaborando para a solidariedade e desenvolvendo o Futuro.</p>
-        </div>
-
-        <nav>
-            <section>
-                <h3>FAQ</h3>
-                <ul>
-                    <li><a href="#">Dúvidas Frequentes</a></li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Transparência</h3>
-                <ul>
-                    <li><a href="#">Política de Privacidade</a></li>
-                    <li><a href="#">Termos de Uso</a></li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Mapa do Site</h3>
-                <ul>
-                    <li><a href="{{ url_for('home.home') }}">Home</a></li>
-                    <li><a href="{{ url_for('pages.render_paginas', pagina='quem_somos') }}">Quem Somos</a></li>
-                    <li><a href="{{ url_for('pages.render_paginas', pagina='cadastro_de_itens') }}">Doar</a></li>
-                    <li><a href="{{ url_for('pages.render_paginas', pagina='doacoes') }}">Receber Doação</a></li>
-                    <li><a href="#">Ajuda/Suporte</a></li>
-                    <li><a href="{{ url_for('pages.render_paginas', pagina='MinhaConta') }}">Minha Conta</a></li>
-                </ul>
-            </section>
-        </nav>
-    </footer>
-</body>
-
-</html>
+{% endblock %}

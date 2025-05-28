@@ -40,8 +40,7 @@ def register():
             db.session.commit()
 
             flash('Usuário cadastrado com sucesso!', 'sucess')
-            #lembrar de adicionar a página home corretamente quando for feito o merge
-            #return render_template(url_for('home.html'))
+            return redirect(url_for('cadastro_itens.cadastro_itens'))
 
         except Exception as e:
             db.session.rollback()

@@ -1,13 +1,70 @@
 /* Estilos padrões para as páginas do projeto */
 
+/* estilização mensagens flash */
+.flash {
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.flash-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.flash-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.flash-error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.flash-info {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+#mensagens-flash {
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  position: fixed; /* Pra aparecer flutuando, opcional */
+  align-items: center;
+  justify-content: center;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+}
+
+/* Resetando margens e preenchimentos */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/*Cabeçalho*/
-header{
+/* Aplicando para todos os h1 */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; /* Peso semi-bold */
+}
+
+/* Aplicando para todos os parágrafos */
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Peso regular */
+}
+
+/* Cabeçalho (mantido EXATAMENTE como está) */
+header {
+    width: 1920px;
     background-color: #1A1A1A;
     color: #ffffff;
     font-size: 18px;
@@ -22,13 +79,19 @@ header{
     position: static;
 }
 
-/*links*/
-a {
+/* Links (hover adicionado) */
+header a {
     text-decoration: none;
     color: #ffffff;
+    transition: color 0.3s ease; /* Adicionado apenas isso */
 }
 
-ul {
+header a:hover {
+    color: #C94141; /* Única mudança - cor do hover */
+}
+
+/* Lista (mantido igual) */
+header ul {
     list-style: none; 
     padding: 0;
     margin: 0;
@@ -36,21 +99,27 @@ ul {
     gap: 15px;
 }
 
-li {
+header li {
     display: inline-block;
     margin-right: 20px; 
 }
 
-/*logo*/
+/* Logo (mantido EXATAMENTE igual) */
 .logo img {
-    display: flex;
-    align-items: center;
+    display: block;
     height: 90px;
     margin-left: 40px;
-    margin-right: 60px;
     padding: 0px;
-    justify-content: space-between;
     position: relative;
+}
+
+/* Container principal */
+.main-content-container {
+    max-width: 1536px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /*rodapé*/
@@ -58,12 +127,19 @@ footer {
     background-color: #1A1A1A;
     color: #ffffff;
     font-size: 16px;
-    font-family: Poppins, Arial, Helvetica;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
     font-weight: 400;
-    height: 220px;
     width: 100%;
-    margin: 0px;
-    padding: 40px 80px;
+    margin: 0;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container {
+    max-width: 1536px;
+    width: 100%;
+    padding: 0 80px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -88,18 +164,17 @@ footer .texto-rodape {
     margin-top: 10px;
     line-height: 1.5;
     text-align: left;
-    padding: 0px 0px 0px 50px;
+    padding-left: 50px;
 }
 
 /*links rodapé*/
 footer h3 {
     font-size: 16px;
-    font-family: Poppins, Arial, Helvetica;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
     font-weight: 700;
     color: #ffffff;
-    margin: 0;
-    padding: 0px 150px 0px 0px;
-    text-align: center;
+    margin: 0 0 15px 0;
+    text-align: left;
 }
 
 footer nav {
@@ -107,32 +182,35 @@ footer nav {
     justify-content: space-between;
     gap: 30px;
     flex: 1;
+    max-width: 800px;
 }
 
 footer section {
     display: flex;
     flex-direction: column;
     text-align: left;
-    gap: 10px;
-}
-
-footer nav section {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    gap: 5px;
-    margin: 0;
-    padding: 0;
+    min-width: 150px;
 }
 
 footer section ul {
     display: flex;
-    padding: 4px 0px 0px 0px;
-    margin: 0;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 footer section li {
-    margin-bottom: 1px;
+    margin-bottom: 0;
+}
+
+footer section a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer section a:hover {
+    color: #C94141;
 }

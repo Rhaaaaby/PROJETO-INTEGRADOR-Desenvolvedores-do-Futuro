@@ -3,7 +3,7 @@
 {%block title%} Login {%endblock%}
 
 {%block css_pagina %}
-<link rel="stylesheet" href="{{ url_for('static', filename='stylelogin.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/stylelogin.css') }}">
 {%endblock%}
 
 <main>
@@ -22,7 +22,7 @@
                     <label for="Senha"> Senha: </label>
                     <input type="password" id="Senha" name="Senha" required minlength="6">
 
-                    <a href="#" class="button"> Entrar </a>
+                    <a href="{{ url_for('cadastro_itens.cadastro_itens') }}" class="button"> Entrar </a>
 
                     <a href="{{ url_for('register.register') }}" class="botao-secundario"> Criar Conta </a>
 

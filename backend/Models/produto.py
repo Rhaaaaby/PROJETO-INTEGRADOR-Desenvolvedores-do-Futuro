@@ -10,16 +10,13 @@ class Produto(db.Model):
     Criado_em = db.Column(db.TIMESTAMP, nullable=False, default=datetime.utcnow)
     Estado = db.Column(db.Enum('novo', 'semi-novo', 'usado', name='estado_enum'), nullable=False)
     Status = db.Column(db.Enum('disponivel', 'reservado', 'doado', name='status_enum'), nullable=False)
-    
-    #Chaves estrangeiras
-    Cadastro_Produto_id_Cadastro_Produto = db.Column(db.Integer, db.ForeignKey('Cadastro_Produto.id_Cadastro_Produto'), nullable=False)
+
+    # Chaves estrangeiras
+    Cadastro_Produto_id_Cadastro_Produto = db.Column(db.Integer, db.ForeignKey('CadastroProduto.id_Cadastro_Produto'), nullable=False)
     Usuario_id_Usuario = db.Column(db.Integer, db.ForeignKey('Usuario.id_Usuario'), nullable=False)
     Categoria_id_Categoria = db.Column(db.Integer, db.ForeignKey('Categoria.id_Categoria'), nullable=False)
-    
-    #Relacionamentos
-    cadastro_produto = db.relationship('CadastroProduto', backref='Produto')
-    usuario = db.relationship('User', backref='Produto')
-    categoria = db.relationship('Categoria', backref='Produto')
 
-    def __repr__(self):
-        return f'<Produto {self.Nome}>'
+    # Relacionamentos
+    cadastro_produto = db.relationship('CadastroProduto', backref='produtos', lazy=True)
+    usuario = db.relationship('User', backref='produtos')
+    categoria = db.relationship('Categoria', backref='produtos')

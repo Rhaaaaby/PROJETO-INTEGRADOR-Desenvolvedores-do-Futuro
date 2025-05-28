@@ -10,11 +10,11 @@
     <title>
         {% block title %}
         <!-- conteúdo título -->
-        {%endblock%} 
+        {%endblock%}
     </title>
-    
+
     <!-- linkando o documento CSS para o Flask -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='comum.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/comum.css') }}">
 
     {%block css_pagina%}
     <!-- conteúdo CSS específico para as páginas -->
@@ -26,45 +26,48 @@
 </head>
 
 <body>
-    <!-- Comentando as mensagens flash enquanto é feito os testes -->
-    <!-- Campo para enviar mensagens no navegador 
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %} -->
-
-    <!-- Ícones para as mensagens de alerta 
-    <div class="alert alert-{{ category }}">
-        <i class="fas fa-{% if category == 'success' %}check{% else %}exclamation{% endif %}"></i>
-        {{ message }}
-    </div> -->
-
-    <!-- Para dispensar a mensagem 
-    <div class="alert alert-{{ category }}">
-        {{ message }}
-        <button class="close" onclick="this.parentElement.style.display='none'">×</button>
-    </div> -->
-
 
     <!-- Cabeçalho -->
     <header>
-        <a class="logo" href="{{ url_for('templates', filename='index.html') }}">
-            <img src="{{url_for('static', filename='images/logo_doai.png') }}" alt="Logo Doaí">
+        <a class="logo" href="{{ url_for('home.home') }}">
+            <img src="{{ url_for('static', filename='images/logo_doai.png') }}" alt="Logo Doaí">
         </a>
         <nav>
             <ul>
-                <li><a href="{{ url_for('templates', filename='index.html') }}">Home</a></li>
-                <li><a href="{{ url_for('templates', filename='quem_somos.html') }}">Quem Somos</a></li>
-                <li><a href="{{ url_for('templates', filename='cadastro_de_itens.html') }}">Doar</a></li>
-                <li><a href="{{ url_for('templates', filename='doacoes.html') }}">Receber Doação</a></li>
-                <li><a href="#">Ajuda/Suporte</a></li>
-                <li><a href="{{ url_for('templates', filename='MinhaConta.html') }}">Minha Conta</a></li>
+                <li><a href="{{ url_for('home.home') }}">Home</a></li>
+                <li><a href="{{ url_for('quem_somos.quem_somos') }}">Quem Somos</a></li>
+                <li><a href="{{ url_for('cadastro_itens.cadastro_itens') }}">Doar</a></li>
+                <li><a href="{{ url_for('doacoes.doacoes') }}">Receber Doação</a></li>
+                <li><a href="{{ url_for('minha_conta.minha_conta') }}">Minha Conta</a></li>
             </ul>
         </nav>
     </header>
+
+    <!-- mensagens flash -->
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div id="mensagens-flash">
+        {% for category, message in messages %}
+        <div class="flash flash-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const flash = document.getElementById('mensagens-flash');
+            if (flash) {
+                flash.style.transition = 'opacity 0.5s ease-out';
+                flash.style.opacity = '0';
+                setTimeout(() => flash.remove(), 500);
+            }
+        }, 5000); // 5000 ms = 5 segundos
+    </script>
+    {% endif %}
+    {% endwith %}
+
 
     <!-- Conteúdo Principal da Página (será substituído nas páginas filhas)-->
     <main>
@@ -72,11 +75,10 @@
     </main>
 
     <!-- Rodapé -->
-
     <footer>
         <div class="logo-area">
-            <a class="logo" href="#">
-                <img src="{{url_for('static', filename='images/logo_doai.png')}}" alt="Logo Doaí">
+            <a class="logo" href="{{ url_for('home.home') }}">
+                <img src="{{ url_for('static', filename='images/logo_doai.png') }}" alt="Logo Doaí">
             </a>
             <p class="texto-rodape"> Colaborando para a solidariedade e desenvolvendo o Futuro.</p>
         </div>
@@ -100,15 +102,15 @@
             <section>
                 <h3>Mapa do Site</h3>
                 <ul>
-                    <li><a href="{{ url_for('templates', filename='index.html') }}">Home</a></li>
-                    <li><a href="{{ url_for('templates', filename='quem_somos.html') }}">Quem Somos</a></li>
-                    <li><a href="{{ url_for('templates', filename='cadastro_de_itens.html') }}">Doar</a></li>
-                    <li><a href="{{ url_for('templates', filename='doacoes.html') }}">Receber Doação</a></li>
-                    <li><a href="#">Ajuda/Suporte</a></li>
-                    <li><a href="{{ url_for('templates', filename='MinhaConta.html') }}">Minha Conta</a></li>
+                    <li><a href="{{ url_for('home.home') }}">Home</a></li>
+                    <li><a href="{{ url_for('quem_somos.quem_somos') }}">Quem Somos</a></li>
+                    <li><a href="{{ url_for('cadastro_itens.cadastro_itens') }}">Doar</a></li>
+                    <li><a href="{{ url_for('doacoes.doacoes') }}">Receber Doação</a></li>
+                    <li><a href="{{ url_for('minha_conta.minha_conta') }}">Minha Conta</a></li>
                 </ul>
             </section>
         </nav>
     </footer>
 </body>
+
 </html>
