@@ -10,65 +10,88 @@
 {%endblock%}
 
 {%block content%}
-    <main>  
-        <div class="hero">
-            <img src="{{ url_for('static', filename='images/hero_img.png') }}" Alt="Mãos Unidas">
-        </div>
+<main>
+    <div class="hero">
+        <img src="{{ url_for('static', filename='images/hero_img.png') }}" Alt="Mãos Unidas">
+    </div>
 
-        <h1>Veja o que está disponível para doação:</h1>
-        <h3>Escolha uma categoria abaixo ou veja todos os itens disponíveis</h3>
+    <h1>Veja o que está disponível para doação:</h1>
+    <h3>Escolha uma categoria abaixo ou veja todos os itens disponíveis</h3>
 
-        <!-- Filtros -->
-        <form action="{{ url_for('doacoes.doacoes') }}" method="GET">
-            <fieldset>
-                <legend>
-                    <p>Filtrar por categoria:</p>
-                </legend>
+    <!-- Filtros -->
+    <form action="{{ url_for('doacoes.doacoes') }}" method="GET">
+        <fieldset>
+            <legend>
+                <p>Filtrar por categoria:</p>
+            </legend>
 
-                <!-- filtro de categoria -->
-                <div class="filtros">
-                    <div class="filtros-container">
-                        {%for categoria in categorias%}
-                            <div class="opcao-filtro">
-                                <input 
-                                    type="checkbox" 
-                                    id="{{ categoria.Nome }}" 
-                                    name="categoria" 
-                                    value="{{categoria.Nome}}"
-                                    {%if categoria.Nome in categorias_selecionadas %} checked {%endif%}>
-                                <label for="{{ categoria.Nome }}">{{categoria.Nome}}</label>
-                            </div>
-                        {%endfor%}
+            <!-- filtro de categoria -->
+            <div class="filtros">
+                <div class="filtros-container">
+                    {%for categoria in categorias%}
+                    <div class="opcao-filtro">
+                        <input type="checkbox" id="{{ categoria.Nome }}" name="categoria" value="{{categoria.Nome}}"
+                            {%if categoria.Nome in categorias_selecionadas %} checked {%endif%}>
+                        <label for="{{ categoria.Nome }}">{{categoria.Nome}}</label>
                     </div>
+                    {%endfor%}
+                </div>
 
-                    <div class="campo-pesquisa">
-                        <input type="search" name="query" placeholder="Pesquisar produto específico"
+                <div class="campo-pesquisa">
+                    <input type="search" name="query" placeholder="Pesquisar produto específico"
                         aria-label="Buscar no site">
-                        <button type="submit">
-                            <svg class="icone-lupa" viewBox="0 0 24 24">
-                                <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                            </svg>
-                        </button>
-                    </div>
+                    <button type="submit">
+                        <svg class="icone-lupa" viewBox="0 0 24 24">
+                            <path
+                                d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                        </svg>
+                    </button>
                 </div>
-            </fieldset>
-        </form>
+            </div>
+        </fieldset>
+    </form>
 
-        <!--Feed de produtos-->
-        <section class="feed-produtos">
-            {% if produtos|length == 0 %}
-                <p>Nenhum produto encontrado com esses filtros. 😢</p>
-            {% endif %}
+    <!--Feed de produtos-->
+    <section class="feed-produtos">
+        {% if produtos|length == 0 %}
+        <p>Nenhum produto encontrado com esses filtros. 😢</p>
+        {% endif %}
 
-            {%for produto in produtos%}
-                <div class="produto-card">
-                    <h2>{{produto.Nome}}</h2>
-                    <p>{{produto.Descricao}}</p>
-                    <img src="{{ url_for('static', filename= 'images/' + produto.Imagem_url) }}" alt="{{produto.Nome}}">
-                    <p>Categoria: {{produto.categoria.Nome}} </p>
-                    <button class="botao-receber" data-id-produto="{{produto.id_Produto}}">Quero Receber</button>
-                </div>
-            {%endfor%}
-        </section>
-    </main>
+        {%for produto in produtos%}
+        <div class="produto-card">
+            <h2>{{produto.Nome}}</h2>
+            <p>{{produto.Descricao}}</p>
+            <img src="{{ url_for('static', filename= 'images/' + produto.Imagem_url) }}" alt="{{produto.Nome}}">
+            <p>Categoria: {{produto.categoria.Nome}} </p>
+            <button class="botao-receber" data-id="{{id_Produto}}">Quero Receber</button>
+        </div>
+        {%endfor%}
+    </section>
+
+    <script>
+        document.querySelectorAll('.botao-receber').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const produtoId = btn.getAttribute('data-id');
+                fetch(`/reservar/${produtoId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token() if csrf_token is defined else "" }}'
+                    },
+                    body: JSON.stringify({})
+                })
+                    .then(res => {
+                        if (res.ok) return res.text();
+                        throw new Error('Erro ao reservar produto');
+                    })
+                    .then(msg => {
+                        alert(msg);
+                        btn.closest('.produto-item').remove();
+                    })
+                    .catch(err => alert(err.message));
+            });
+        });
+    </script>
+
+</main>
 {% endblock %}

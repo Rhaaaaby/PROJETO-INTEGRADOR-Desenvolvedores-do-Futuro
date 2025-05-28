@@ -8,11 +8,11 @@
 
 {% block content %}
 
-    <form action="/enviar" method="post" enctype="multipart/form-data" target="_self" autocomplete="on">
+    <form action="{{ url_for('minha_conta.deletar_usuario') }}" method="post" enctype="multipart/form-data" target="_self" autocomplete="on">
   <div class="form">
     <fieldset>
       <legend>
-        <span> Bem-vindo(a) de volta, {{ User.Nome }}! :) </span>
+        <span> Bem-vindo(a) de volta! :) </span>
         <p> Aqui você gerencia seus produtos!</p>
       </legend>
 

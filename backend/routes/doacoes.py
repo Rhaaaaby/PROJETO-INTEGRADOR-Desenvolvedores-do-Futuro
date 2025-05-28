@@ -33,3 +33,26 @@ def doacoes():
         categoria_selecionada_id=int(categoria_id) if categoria_id else None,
         termo_busca=termo
     )
+
+from flask import request, redirect, url_for, flash, render_template
+
+@doacoes_bp.route('/reservar/<int:id_Produto>', methods=['POST'])
+def reservar_produto(id_Produto):
+    produto = Produto.query.get(id_Produto)
+    if not produto:
+        flash('Produto não encontrado.', 'error')
+        return redirect(url_for('doacoes.doacoes'))
+
+    if produto.reservado:
+        flash('Produto já foi reservado.', 'warning')
+        return redirect(url_for('doacoes.doacoes'))
+
+    produto.reservado = True
+    db.session.commit()
+    flash(f'Produto "{produto.nome}" reservado com sucesso! 🎉', 'success')
+    return redirect(url_for('doacoes.doacoes'))
+
+@doacoes_bp.route('/feed')
+def feed():
+    produtos = Produto.query.filter_by(reservado=False).all()
+    return render_template('doacoes.html', produtos=produtos)
