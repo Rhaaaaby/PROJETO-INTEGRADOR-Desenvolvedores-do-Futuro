@@ -1,0 +1,43 @@
+{%extends "partials/navbar.html"%}
+
+{% block title %}Cadastro_Itens{% endblock %}
+
+{%block css_pagina%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro_estilo.css') }}">
+{%endblock%}
+
+{% block content %}
+
+<div class="form-container">
+  <h2>Cadastre um produto</h2>
+  <p>Preencha o formulário abaixo:</p>
+  <form action="{{ url_for('cadastro_itens.cadastro_itens') }}" method="POST" enctype="multipart/form-data">
+    <label>Nome do Produto:</label><br />
+    <input type="text" name="nome" required><br /><br />
+
+    <label>Adicionar foto:</label><br />
+    <input type="file" name="foto" accept="image/*" required /><br /><br />
+
+    <label>Estado do Produto:</label><br />
+    <input type="radio" name="estado" value="novo" required /> Novo
+    <input type="radio" name="estado" value="semi-novo" /> Semi-novo
+    <input type="radio" name="estado" value="usado" /> Usado<br /><br />
+
+    <label>Categoria:</label><br />
+    <input type="radio" name="categoria_id" value="1" required /> Alimentos
+    <input type="radio" name="categoria_id" value="2" /> Roupas
+    <input type="radio" name="categoria_id" value="3" /> Livros
+    <input type="radio" name="categoria_id" value="4" /> Brinquedos<br /><br />
+
+    <label>Descrição do produto:</label><br />
+    <textarea name="descricao" rows="5" cols="30"></textarea><br /><br />
+
+    <label>Status:</label><br />
+    <input type="radio" name="status" value="disponivel" required /> Disponível
+    <input type="radio" name="status" value="reservado" /> Reservado
+    <input type="radio" name="status" value="doado" /> Doado<br /><br />
+
+    <button type="submit">ADICIONAR PRODUTO</button>
+  </form>
+</div>
+{% endblock %}

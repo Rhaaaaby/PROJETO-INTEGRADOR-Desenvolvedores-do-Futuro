@@ -1,0 +1,216 @@
+/* Estilos padrões para as páginas do projeto */
+
+/* estilização mensagens flash */
+.flash {
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.flash-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.flash-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.flash-error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.flash-info {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+#mensagens-flash {
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  position: fixed; /* Pra aparecer flutuando, opcional */
+  align-items: center;
+  justify-content: center;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+}
+
+/* Resetando margens e preenchimentos */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Aplicando para todos os h1 */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; /* Peso semi-bold */
+}
+
+/* Aplicando para todos os parágrafos */
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Peso regular */
+}
+
+/* Cabeçalho (mantido EXATAMENTE como está) */
+header {
+    width: 1920px;
+    background-color: #1A1A1A;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: Fira Sans, Arial, Helvetica;
+    height: 140px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px 40px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: static;
+}
+
+/* Links (hover adicionado) */
+header a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease; /* Adicionado apenas isso */
+}
+
+header a:hover {
+    color: #C94141; /* Única mudança - cor do hover */
+}
+
+/* Lista (mantido igual) */
+header ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+header li {
+    display: inline-block;
+    margin-right: 20px; 
+}
+
+/* Logo (mantido EXATAMENTE igual) */
+.logo img {
+    display: block;
+    height: 90px;
+    margin-left: 40px;
+    padding: 0px;
+    position: relative;
+}
+
+/* Container principal */
+.main-content-container {
+    max-width: 1536px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*rodapé*/
+footer {
+    background-color: #1A1A1A;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    width: 100%;
+    margin: 0;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-container {
+    max-width: 1536px;
+    width: 100%;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/*area logo*/
+footer .logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+}
+
+footer .logo img {
+    height: 90px;
+}
+
+footer .texto-rodape {
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: left;
+    padding-left: 50px;
+}
+
+/*links rodapé*/
+footer h3 {
+    font-size: 16px;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    text-align: left;
+}
+
+footer nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex: 1;
+    max-width: 800px;
+}
+
+footer section {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    min-width: 150px;
+}
+
+footer section ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+footer section li {
+    margin-bottom: 0;
+}
+
+footer section a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer section a:hover {
+    color: #C94141;
+}

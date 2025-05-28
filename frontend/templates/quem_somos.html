@@ -1,0 +1,47 @@
+{% extends "partials/navbar.html" %}
+
+{% block title %}Quem Somos{% endblock %}
+
+{% block css_pagina %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/quem_somos.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section class="container-quem-somos">
+        <div class="img-hero">
+            <img src="{{ url_for('static', filename='images/hero_img.png') }}" alt="hero imagem">
+        </div>
+        <div class="container-text">
+            <div class="p-text">
+                <p>
+                    Somos uma plataforma comprometida em conectar pessoas que desejam doar com aquelas que mais precisam. Nosso objetivo é facilitar e humanizar o processo de doação, criando uma rede solidária onde roupas, alimentos, brinquedos, livros e outros itens encontrem um novo destino e façam a diferença na vida de alguém. Acreditamos que pequenas ações geram grandes transformações, e que todos têm algo valioso para compartilhar - seja um objeto, um tempo, ou um gesto de empatia. Nascemos do desejo de tornar a solidariedade mais acessível, rápida e segura. Nossa equipe é formada por pessoas comuns que acreditam em um mundo mais justo e colaborativo. Trabalhamos todos os dias para garantir que as doações sejam feitas de forma organizada, com respeito e responsabilidade. Aqui cada doação conta. <br>
+                    E cada pessoa importa <br>
+                    Junte-se a nós nessa missão!❤️
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {%endblock%}
